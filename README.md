@@ -8,7 +8,7 @@ Sample of a **simple HTTP Stream API Server in PHP7**.
 docker pull keinos/http-stream-api
 ```
 
-This is a sample of HTTP Stream API which just returns a count-up in JSON format such as `{"response":"foo","count":0}`.
+This is a sample of HTTP Stream API which just counts up to 10 in JSON format such as `{"response":"foo","count":0}`.
 
 - Base Image: [keinos/php7-alpine](https://hub.docker.com/r/keinos/alpine/) @ Docker Hub
 - Container Info:
