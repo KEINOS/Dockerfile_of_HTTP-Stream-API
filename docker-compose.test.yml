@@ -2,4 +2,5 @@
 # - Local usage: docker-compose -f docker-compose.test.yml up --build
 sut:
   build: .
+  image: http-stream:test
   entrypoint: /app/run-test.sh
