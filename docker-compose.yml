@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  stream:
+    container_name: server_stream
+    build: .
+    image: http-stream
+    ports:
+      - 8888:80

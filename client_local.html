@@ -1,0 +1,56 @@
+<!--
+  HTTP Stream API Client Sample.
+  ==============================
+  Before opening this file in your browser, you need to build and
+  boot the docker container as below. Change the 8888 port if needed.
+    $ docker build -t test .
+    ...
+    $ docker run --rm -d -p 8888:80 test
+    ...
+  Then open this html file with your browser. (Below sample in macOS)
+    $ open ./client_local.html
+  Or you can just cURL to localhost to check the server sesponce.
+    $ curl http://localhost:8888/
+
+  * Credit
+  This script was inspired by: http://blog.anatoo.jp/entry/20110530/1306695399
+-->
+<html><head></head><body>
+
+    <script type="text/javascript">
+
+    window.onload = function (){
+        var i = 0, ajax = new XMLHttpRequest();
+
+        var c = document.getElementById("c");
+        function output(line) {
+            c.value += line + "\n";
+        }
+
+        ajax.open("GET","http://localhost:8888/");
+
+        ajax.onreadystatechange = function (){
+            if (ajax.readyState == 4) {
+                output("response finished");
+            }
+        };
+
+        ajax.send(null);
+
+        var length = 0;
+        setInterval(function() {
+            if (length !== ajax.responseText.length) {
+                length = ajax.responseText.length;
+                var lines = ajax.responseText.split("\n"),
+                    line = lines[lines.length - 2];
+
+                if (line) {
+                    output("received: " + line);
+                }
+            }
+        }, 300);
+    };
+    </script>
+
+    <textarea id="c" rows="40" cols="80"></textarea>
+</body></html>
