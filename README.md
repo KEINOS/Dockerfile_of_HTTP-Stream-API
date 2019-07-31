@@ -64,7 +64,7 @@ $ open ./client_local.html
 
 ```shellsession
 $ # Boot container with docker-compose
-$ docker-compose up server_stream -d
+$ docker-compose up -d --build stream
 ...
 
 $ # cURL the API Endpoint (See stream work)
