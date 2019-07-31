@@ -16,4 +16,4 @@ name_host=${name_host:-$(cat /etc/hostname)}
 echo "- Listen: http://${name_host}:80/ (Inside local network only)"
 
 echo '- Running built-in PHP Web server ...'
-nohup php -S $name_host:80 -t /app /app/router.php > /dev/null 2>&1 &
+php -S $name_host:80 -t /app /app/router.php
